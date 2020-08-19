@@ -20,7 +20,7 @@ public class HomeController {
 	public String showAnchovyResult(Model model, @RequestParam("Name") String Name, @RequestParam("Price") double Price) {
 
 		model.addAttribute("Name", Name);
-		model.addAttribute("Price", Price);
+		model.addAttribute("Price", "$"+Price);
 		
 
 		return "anchovy-result";
@@ -35,7 +35,7 @@ public class HomeController {
 	public String showPaleoResult(Model model, @RequestParam("Name") String Name, @RequestParam("Price") double Price) {
 
 		model.addAttribute("Name", Name);
-		model.addAttribute("Price", Price);
+		model.addAttribute("Price","$"+ Price);
 		
 
 		return "anchovy-result";
@@ -50,7 +50,7 @@ public class HomeController {
 	public String showDessertResult(Model model, @RequestParam("Name") String Name, @RequestParam("Price") double Price) {
 
 		model.addAttribute("Name", Name);
-		model.addAttribute("Price", Price);
+		model.addAttribute("Price", "$"+Price);
 		
 
 		return "dessert-result";
@@ -67,7 +67,7 @@ public class HomeController {
 	@RequestMapping("/review-result")
 	public String showReviewResult(Model model, @RequestParam("Name") String Name1,
 			@RequestParam("Comment") String Comment,
-			@RequestParam( value ="radiobutton", defaultValue =" ") String Rating) {
+			@RequestParam( value ="radiobutton", required =false) String Rating) {
 	 
 		
 		model.addAttribute("Name1", Name1);
@@ -84,7 +84,7 @@ public class HomeController {
 	@RequestMapping("/buildpizza-result")
 	public String showBuildPizzaResult(Model model, @RequestParam("Size") String Size, 
 			@RequestParam("Toppings") int Toppings, @RequestParam("txtSplInstructions")	String txtSplInstructions,
-			@RequestParam( value="chkGluten",defaultValue="false") String chkGluten ) {
+			@RequestParam( value="chkGluten",defaultValue="no") String chkGluten ) {
 
 
 		double price=10;
@@ -98,7 +98,7 @@ public class HomeController {
 			price= 12 + Toppings *1.25;
 		}
 		
-		if(chkGluten.equalsIgnoreCase("true")){
+		if(chkGluten.equalsIgnoreCase("yes")){
 			price +=2;
 			
 		}
@@ -107,7 +107,7 @@ public class HomeController {
 		model.addAttribute("Toppings", Toppings);
 		model.addAttribute("chkGluten", chkGluten);
 		model.addAttribute("txtSplInstructions", txtSplInstructions);
-		model.addAttribute("Price", price);
+		model.addAttribute("Price", "$"+price);
 
 	 
 		

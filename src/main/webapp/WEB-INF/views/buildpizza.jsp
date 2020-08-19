@@ -27,7 +27,7 @@
 			</div>
 			<br>
 			<div>
-			<input type="checkbox" name="chkGluten" value="true" /> <strong>Gluten-Free Crust?</strong> ($2.00 extra)
+			<input type="checkbox" name="chkGluten" value="yes" /> <strong>Gluten-Free Crust?</strong> ($2.00 extra)
 			</div>
 			<br>
 			<div>
