@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+.freeDeliveryMsg {
+	color: #ff0000;
+	font-size: 18px;
+	
+} 
+
+img{
+	width:200px;
+	height: 200p;
+}
+.maindiv{
+	border: 1px solid #000000; 
+	width:500px;
+}
+
+a{
+	color:blue;
+}
