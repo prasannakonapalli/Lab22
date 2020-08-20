@@ -6,21 +6,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="/style.css" rel="stylesheet" />
 </head>
 <body>
 
-	<div>
+	<div class="maindiv">
 
 		<h2>Speciality Pizza:Anchovys Lover's</h2>
 
 		<form action="/anchovy-result">
 
 			<div>
-			<strong>Name: </strong><input type="text" name="Name" /> 
+			<strong>Name: </strong>
+			<input type="text" name="Name"  required pattern="[A-Za-z]+" minlength="2" maxlength="10" /> 
 			</div>
 			<br>
 			<div>
-			<strong>Price: </strong><input type="number" step=".01" name="Price" />
+			<strong>Price: </strong><input type="number" step=".01" name="Price" min="0" max="50"  required />
 			</div>
 			<br>
 			<button type="submit">check</button>

@@ -8,7 +8,11 @@
 
 img{
 	width:200px;
+<<<<<<< Updated upstream
 	height: 200p;
+=======
+	height: 200px
+>>>>>>> Stashed changes
 }
 .maindiv{
 	border: 1px solid #000000; 

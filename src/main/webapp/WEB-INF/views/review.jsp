@@ -6,29 +6,31 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="/style.css" rel="stylesheet" />
 </head>
 <body>
 
-	<div>
+	<div class="maindiv">
 
 		<h2>Leave a Review</h2>
 
 		<form action="/review-result">
 
 <div>
-			<strong>Your Name: </strong><input type="text" name="Name" /> 
+			<strong>Your Name: </strong>
+			<input type="text" name="Name" required pattern="[A-Za-z]+" minlength="2" maxlength="10" /> 
 			</div>
 			<br>
 			<div>
 			<strong>Comment </strong>
 			<br>
-			<textarea name="Comment"  rows="4" cols="50"></textarea>
+			<textarea name="Comment"  rows="4" cols="50" required pattern="[A-Za-z]+" minlength="5" maxlength="50"></textarea>
 			</div>
 			<br>
 			<div>
 			<strong>Rating </strong>
 			<br>
-			<input type="radio" name="radiobutton" id="a" value="5">
+			<input type="radio" name="radiobutton" id="a" value="5" required>
 			<label for="a"><b>5(best)</b></label>
 			
 			<input type="radio" name="radiobutton" id="b" value="4">

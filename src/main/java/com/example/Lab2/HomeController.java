@@ -1,5 +1,10 @@
 package com.example.Lab2;
 
+import java.sql.Date;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,7 +13,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class HomeController {
 	@RequestMapping("/")
-	public String showHome() {
+	public String showHome(Model model) {
+		List<SpecialtyPizza> specialityPizzas=new ArrayList<SpecialtyPizza>();
+		specialityPizzas.add(new SpecialtyPizza("Anchovy Lover's", 10.00,"anchovy"));
+		specialityPizzas.add(new SpecialtyPizza("Paleo Pizzas", 12.00, "paleo"));
+		specialityPizzas.add(new SpecialtyPizza("Dessert Pizza", 15.00,"dessert"));
+		 
+		
+		model.addAttribute("pizaaList", specialityPizzas); 
+		
 		return"index";
 	}
 	@RequestMapping("/anchovy")
@@ -20,7 +33,7 @@ public class HomeController {
 	public String showAnchovyResult(Model model, @RequestParam("Name") String Name, @RequestParam("Price") double Price) {
 
 		model.addAttribute("Name", Name);
-		model.addAttribute("Price", "$"+Price);
+		model.addAttribute("Price", Price);
 		
 
 		return "anchovy-result";
@@ -35,7 +48,7 @@ public class HomeController {
 	public String showPaleoResult(Model model, @RequestParam("Name") String Name, @RequestParam("Price") double Price) {
 
 		model.addAttribute("Name", Name);
-		model.addAttribute("Price","$"+ Price);
+		model.addAttribute("Price",Price);
 		
 
 		return "anchovy-result";
@@ -50,7 +63,7 @@ public class HomeController {
 	public String showDessertResult(Model model, @RequestParam("Name") String Name, @RequestParam("Price") double Price) {
 
 		model.addAttribute("Name", Name);
-		model.addAttribute("Price", "$"+Price);
+		model.addAttribute("Price", Price);
 		
 
 		return "dessert-result";
@@ -77,13 +90,28 @@ public class HomeController {
 		return "review-result";
 	}
 	@RequestMapping("/buildpizza")
-	public String showBuildPizza() {
+	public String showBuildPizza(Model model) {
+		List<String> toppingsList=new ArrayList<String>();
+		toppingsList.add("Pepperon");
+		toppingsList.add("Sausage");
+		toppingsList.add("Chicken");
+		toppingsList.add("Mushroom");
+		toppingsList.add("Olive");
+		toppingsList.add("Green Pepper");
+		toppingsList.add("Onion");
+		toppingsList.add("Bananna Pepper");
+		toppingsList.add("Anchovies");
+		toppingsList.add("Pineapple");
+		
+		model.addAttribute("toppingsList", toppingsList);
+		
 
 		return "buildpizza";
 	}
 	@RequestMapping("/buildpizza-result")
 	public String showBuildPizzaResult(Model model, @RequestParam("Size") String Size, 
-			@RequestParam("Toppings") int Toppings, @RequestParam("txtSplInstructions")	String txtSplInstructions,
+			@RequestParam("Toppings") int Toppings, 
+			@RequestParam("txtSplInstructions")	String txtSplInstructions,
 			@RequestParam( value="chkGluten",defaultValue="no") String chkGluten ) {
 
 
@@ -104,10 +132,11 @@ public class HomeController {
 		}
 		
 		model.addAttribute("Size", Size);
-		model.addAttribute("Toppings", Toppings);
+		model.addAttribute("Toppings", Toppings); 
+
 		model.addAttribute("chkGluten", chkGluten);
 		model.addAttribute("txtSplInstructions", txtSplInstructions);
-		model.addAttribute("Price", "$"+price);
+		model.addAttribute("Price", price);
 
 	 
 		
